@@ -4,7 +4,7 @@ const Usuario = require("../models/usuario.js");
 
 // Función para generar un token JWT
 const generarToken = (id) => {
-  return jwt.sign({ id }, "tu_secreto", { expiresIn: "1h" });
+  return jwt.sign({ id }, "process.env.JWT_SECRET", { expiresIn: "1h" });
 };
 
 // Controlador para registrar un usuario
