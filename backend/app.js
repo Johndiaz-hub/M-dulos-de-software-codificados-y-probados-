@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -5,10 +6,10 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/authUsuarios");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// Conexión a la base de datos MongoDB Atlas
-mongoose.connect("mongodb+srv://omarfonseca11:1996@cluster0.ufmgk.mongodb.net/administradores")
+// Conexión a la base de datos MongoDB Atlas usando la URI del archivo .env
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Conexión a MongoDB Atlas exitosa.");
   })
@@ -16,10 +17,9 @@ mongoose.connect("mongodb+srv://omarfonseca11:1996@cluster0.ufmgk.mongodb.net/ad
     console.error("Error al conectar a MongoDB:", error);
   });
 
-
 // Configuración de CORS
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.FRONTEND_URL,
   credentials: true,
 }));
 
@@ -33,3 +33,4 @@ app.use("/auth", authRoutes);
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
