@@ -182,27 +182,27 @@ background-color: rgb(42, 178, 178);
 }
 
 #admistrar .img-camara:before {
-  background-image: url('imagenes/Icon-camara.png');
+  background-image: url('public/Icon-camara.png');
 }
 
 #admistrar .img-bateria:before {
-  background-image: url('imagenes/Icon-bateria.png');
+  background-image: url('public/Icon-bateria.png');
 }
 
 #admistrar .img-caja:before {
-  background-image: url('imagenes/Icon-caja.png');
+  background-image: url('public/Icon-caja.png');
 }
 
 #admistrar .img-mensaje:before {
-  background-image: url('imagenes/Icon-mensaje.png');
+  background-image: url('public/Icon-mensaje.png');
 }
 
 #admistrar .img-nube:before {
-  background-image: url('imagenes/Icon-nube.png'); 
+  background-image: url('public/Icon-nube.png'); 
 }
 
 #admistrar .img-bien:before {
-  background-image: url('imagenes/Icon-bien.png');
+  background-image: url('public/Icon-bien.png');
 }
 
 /* Estilos para las líneas de color sobre las descripciones */
@@ -248,7 +248,7 @@ background-color: rgb(42, 178, 178);
 /* crear cuenta estilos generales */
 #crear-cuenta {
   font-family: Arial, sans-serif;
-  background-image: url('imagenes/Image-registro.png'); 
+  background-image: url('public/Image-registro.png'); 
   background-size: cover;
   background-position: center;
   margin-bottom: 10px;
@@ -289,7 +289,7 @@ button.google {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  background-image: url('imagenes/Google\ Icon.png');
+  background-image: url('public/Google\ Icon.png');
   margin-left: 5px;
   background-size: 20px 20px;
   background-repeat: no-repeat;
