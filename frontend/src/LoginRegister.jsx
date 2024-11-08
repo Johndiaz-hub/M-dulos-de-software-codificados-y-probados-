@@ -42,7 +42,7 @@ const LoginRegister = () => {
           // Redirigir a la página de inicio de sesión después de un breve retraso
           setTimeout(() => {
             navigate('/login'); // O la ruta correspondiente para la vista de login
-          }, 500); 
+          }, 1); 
         }
       } else {
         console.error(data);
@@ -52,8 +52,7 @@ const LoginRegister = () => {
       console.error(error);
       alert("Ocurrió un error. Intenta nuevamente.");
     }
-  };
-  
+  };  
 
   return (
     <div className="loginregister">
