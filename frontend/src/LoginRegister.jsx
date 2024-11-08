@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 import "./LoginRegister.css";
 import { IonIcon } from '@ionic/react';
 import { mailOutline, lockClosedOutline, personOutline, logoTwitter, logoFacebook, logoLinkedin, logoGoogle } from 'ionicons/icons';
-import api from "./api"; // Importar la instancia de Axios
+import api from './api'; // Importar el archivo api.js
 
 const LoginRegister = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -26,35 +26,40 @@ const LoginRegister = () => {
     e.preventDefault();
     const url = isLogin ? "/auth/login" : "/auth/register"; 
     try {
-      const response = await api.post(url, formData); // Usar la instancia de Axios configurada con la variable de entorno
-
-      const data = response.data;
-      console.log(data);
-
+      const response = await api.post(url, formData); // Usar api.js con axios.post
+      const data = response.data; // Obtener la respuesta de la API
+  
       if (response.status === 200) {
         if (isLogin) {
           // Si es inicio de sesión, redirigir al dashboard
           console.log("Token:", data.token);
           navigate('/admindashboard'); 
         } else {
-          // Si es registro, mostrar un mensaje o redirigir a la página de login
+          // Si es registro, mostrar un mensaje y cambiar la vista a login
           alert("Registro exitoso. Ahora puede iniciar sesión.");
-          setIsLogin(true); // Cambia la vista a la de inicio de sesión
+          setIsLogin(true); // Cambiar a la vista de inicio de sesión
+          
+          // Redirigir a la página de inicio de sesión después de un breve retraso
+          setTimeout(() => {
+            navigate('/login'); // O la ruta correspondiente para la vista de login
+          }, 500); 
         }
+      } else {
+        console.error(data);
+        alert(data.message || "Ocurrió un error. Intenta nuevamente.");
       }
     } catch (error) {
       console.error(error);
       alert("Ocurrió un error. Intenta nuevamente.");
     }
   };
+  
 
   return (
     <div className="loginregister">
       <div className={`loginregister-container ${isLogin ? '' : 'toggle'}`}> 
         <div className="login-register loginregister-container-form">
           <form className={`loginregister-sign-in ${isLogin ? '' : 'hidden'}`} onSubmit={handleSubmit}>
-
-            {/* Formulario de Iniciar Sesión */}
             <h2>Iniciar Sesión</h2>
             <div className="loginregister-social-networks">
               <IonIcon icon={logoTwitter} />
