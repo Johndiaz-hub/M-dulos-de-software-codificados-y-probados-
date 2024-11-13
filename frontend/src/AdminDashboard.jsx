@@ -46,7 +46,7 @@ function AdminDashboard() {
       <Container maxWidth="lg" className="dashboard-container">
         {/* Cabecera */}
         <header className="dashboard-header">
-          <h1>Bienvenidos a mi Sitio</h1>
+          <h1>Bienvenidos a mi Sitio Dashboard</h1>
         </header>
 
         <Grid container spacing={3}>
